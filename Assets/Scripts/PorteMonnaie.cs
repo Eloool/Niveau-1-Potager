@@ -29,7 +29,7 @@ public class PorteMonnaie : MonoBehaviour
         meshPro.text = "Argent : " + money.ToString();
     }
 
-    public bool RemoveMoney(int money, int moneyNeeded)
+    public bool RemoveMoney( int moneyNeeded)
     {
         if (money > moneyNeeded)
         {
