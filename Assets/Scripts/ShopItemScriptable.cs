@@ -5,9 +5,9 @@ using UnityEngine;
 public class ShopItemScriptable : ScriptableObject
 {
     public ClassBuff classBuff;
-    public int price;
     public string Title;
     public string Description;
     public Texture sprite;
+    public InfoShopBuff info;
 }
 

@@ -17,3 +17,4 @@ MonoBehaviour:
   Title: Augmentation arrosoir
   Description: 'Cette upgrade augmente la taille max de l''arrosoir '
   sprite: {fileID: 2800000, guid: 5e74050937afcb849aaf5fd6827d700a, type: 3}
+  info: {fileID: 11400000, guid: 1579dcc1edf48584a81bc59404da7b86, type: 2}

@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.UI;
 
 public class Shop : MonoBehaviour
 {
@@ -9,10 +10,14 @@ public class Shop : MonoBehaviour
     public GameObject shopItemPrefab;
     public Transform shopTransform;
     public GameObject shop;
+    public Scrollbar scrollbar;
     public InputActionReference shopActionReference;
+    public static Shop instance;
+    private static ShopItem shopItemtemp;
 
     private void Start()
     {
+        instance = this;
         foreach (ShopItemScriptable shopItem in shopItemScriptables)
         {
             GameObject shopitem = Instantiate(shopItemPrefab, shopTransform);
@@ -21,11 +26,15 @@ public class Shop : MonoBehaviour
             ShopItems[ShopItems.Count - 1].LoadInfo(shopItem);
         }
         UpdateAllShopItems();
+        shop.SetActive(true);
+        shop.SetActive(false);
+
     }
 
     private void OnEnable()
     {
         shopActionReference.action.performed += ChangeShopInput;
+        
     }
 
     private void CreateBuff(GameObject gameObject, ClassBuff classBuff)
@@ -35,13 +44,13 @@ public class Shop : MonoBehaviour
             case ClassBuff.Multiplication:
                 gameObject.AddComponent<MultiplicateurScore>(); break;
             case ClassBuff.AjoutDrone:
-                gameObject.AddComponent<ActivationDrone>();
-                break;
+                gameObject.AddComponent<ActivationDrone>(); break;
             case ClassBuff.AugmentationArrosoir:
-                gameObject.AddComponent<AugmentMaxSizeArrosoir>();
-                break;
+                gameObject.AddComponent<AugmentMaxSizeArrosoir>(); break;
             case ClassBuff.AugmentationSeeds:
                 gameObject.AddComponent<AugmentionMaxInventaire>(); break;
+            case ClassBuff.AugmenationVitessePousse:
+                gameObject.AddComponent<AugmentationVitessePousse>(); break;
             default:
                 break;
         }
@@ -67,8 +76,37 @@ public class Shop : MonoBehaviour
             if (MenusManager.instance.OpenCanvas(shop))
             {
                 shop.SetActive(true);
+                scrollbar.value = 1;
             }
         }
+    }
+
+    public int getInfoForBuff(ShopItem shopItem , int index)
+    {
+        shopItemtemp = shopItem;
+        int indexList = ShopItems.FindIndex(findIndex);
+        return shopItemScriptables[indexList].info.infos[index];
+    }
+
+    public void UpdateShopItem(ShopItem shopItem ,int index)
+    {
+        shopItemtemp = shopItem;
+        int indexList = ShopItems.FindIndex(findIndex);
+        if (index < shopItemScriptables[indexList].info.price.Count)
+        {
+            shopItem.setPrice(shopItemScriptables[indexList].info.price[index]);
+        }
+        else
+        {
+            shopItemScriptables.Remove(shopItemScriptables[indexList]);
+            ShopItems.Remove(shopItem);
+            Destroy(shopItem.gameObject);
+        }
+    }
+
+    public static bool findIndex(ShopItem shopItem)
+    {
+        return shopItem.Equals(shopItemtemp);
     }
 
     public void CloseShopButton()
@@ -89,5 +127,6 @@ public enum ClassBuff
     Multiplication,
     AjoutDrone,
     AugmentationArrosoir,
-    AugmentationSeeds
+    AugmentationSeeds,
+    AugmenationVitessePousse
 }

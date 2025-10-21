@@ -15,6 +15,10 @@ public class DroneInteraction : MonoBehaviour
     private void Start()
     {
         instance = this;
+    }
+
+    private void OnEnable()
+    {
         interact.action.performed += LaunchRayInteract;
     }
     public void LaunchRayInteract(InputAction.CallbackContext callbackContext)

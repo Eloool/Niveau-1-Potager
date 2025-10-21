@@ -2,8 +2,8 @@ using UnityEngine;
 
 public class MultiplicateurScore : ShopBuff
 {
-    public override void Activate()
+    public override void Activate(int info)
     {
-        Score.instance.SetMultiplicateur(Score.instance.getMultiplicateur() * 2);
+        Score.instance.SetMultiplicateur(info);
     }
 }

@@ -2,8 +2,8 @@ using UnityEngine;
 
 public class AugmentionMaxInventaire : ShopBuff
 {
-    public override void Activate()
+    public override void Activate(int info)
     {
-        Inventaire.instance.setNumberMaxofSeeds(10);
+        Inventaire.instance.setNumberMaxofSeeds(info);
     }
 }

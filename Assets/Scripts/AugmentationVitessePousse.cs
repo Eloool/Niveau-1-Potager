@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class ActivationDrone : ShopBuff
+public class AugmentationVitessePousse : ShopBuff
 {
     public override void Activate(int info)
     {

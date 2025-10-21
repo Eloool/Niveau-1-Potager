@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class ShopBuff : MonoBehaviour
 {
-    public virtual void Activate()
+    public virtual void Activate(int info)
     {
 
     }

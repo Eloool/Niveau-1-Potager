@@ -17,3 +17,4 @@ MonoBehaviour:
   Title: Augmentation de la taille maximale de l'invetaire
   Description: Cette upgrade augmente la taille de votre inventaire
   sprite: {fileID: 2800000, guid: c46217df01d283e46a49cb8da5ff053c, type: 3}
+  info: {fileID: 11400000, guid: 5504484683ee36e4692e8128be9e8b4f, type: 2}

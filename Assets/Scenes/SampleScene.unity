@@ -3165,7 +3165,7 @@ Camera:
     height: 1
   near clip plane: 0.3
   far clip plane: 1000
-  field of view: 70
+  field of view: 60
   orthographic: 0
   orthographic size: 5
   m_Depth: -1
@@ -7103,9 +7103,11 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 292a70dbd570987458d73d391ddc4640, type: 2}
   - {fileID: 11400000, guid: 47b9fc28b181ab64aa0dda2ce16a3973, type: 2}
   - {fileID: 11400000, guid: 4ee7a59d7b4af434da07ca5feb1faccd, type: 2}
+  - {fileID: 11400000, guid: eb66061c95092c54893fe151ace36d3e, type: 2}
   shopItemPrefab: {fileID: 3681634955604055000, guid: 6b22cc1b40573784b8de002a56843b20, type: 3}
   shopTransform: {fileID: 2109998469}
   shop: {fileID: 2000931372}
+  scrollbar: {fileID: 403782974}
   shopActionReference: {fileID: 66462505056673537, guid: ee6b069b2447eaf4faa264bce5e6665e, type: 3}
 --- !u!1001 &806397390
 PrefabInstance:

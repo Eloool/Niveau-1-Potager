@@ -2,8 +2,8 @@ using UnityEngine;
 
 public class AugmentMaxSizeArrosoir : ShopBuff
 {
-    public override void Activate()
+    public override void Activate(int info)
     {
-        Inventaire.instance.setMaxArrosoir(200);
+        Inventaire.instance.setMaxArrosoir(info);
     }
 }
