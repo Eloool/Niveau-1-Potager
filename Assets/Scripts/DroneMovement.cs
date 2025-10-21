@@ -6,9 +6,11 @@ public class DroneMovement : MonoBehaviour
     public InputActionReference actionReference;
     public float speed;
     private CharacterController characterController;
+    public static DroneMovement instance;
 
-    private void Start()
+    private void Awake()
     {
+        instance = this;
         characterController = GetComponent<CharacterController>();
     }
 

@@ -3,11 +3,11 @@ using UnityEngine;
 
 public class PorteMonnaie : MonoBehaviour
 {
-    private int money = 0;
+    private int money = 1000;
     public static PorteMonnaie instance;
     public TextMeshProUGUI meshPro;
 
-    private void Start()
+    private void Awake()
     {
         instance = this;
         ChangeMoney();
@@ -29,9 +29,9 @@ public class PorteMonnaie : MonoBehaviour
         meshPro.text = "Argent : " + money.ToString();
     }
 
-    public bool RemoveMoney(int money, int moneyNeeded)
+    public bool RemoveMoney( int moneyNeeded)
     {
-        if (money > moneyNeeded)
+        if (money >= moneyNeeded)
         {
             money -= moneyNeeded;
             ChangeMoney();

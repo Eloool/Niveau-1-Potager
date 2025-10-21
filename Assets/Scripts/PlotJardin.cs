@@ -20,10 +20,10 @@ public class PlotJardin : Interaction
 
     public override void Interact()
     {
-        if (legumeinplot == null && Inventaire.instance.GetLegume())
+        if (legumeinplot == null && Inventaire.instance.canPlant())
         {
             legumeinplot = new Legume();
-            legumeinplot.LoadInfo(Inventaire.instance.GetLegume());
+            legumeinplot.LoadInfo(Inventaire.instance.PlantLegume());
             legumeinplot.setPlotJardin(this);
             UpdateLegume();
             if (IsPlotWatered)
