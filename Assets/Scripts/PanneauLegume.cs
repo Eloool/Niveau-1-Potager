@@ -6,7 +6,7 @@ public class PanneauLegume : Interaction
 
     public override void Interact()
     {
-        Inventaire.instance.setLegume(legumeGiven);
+        Inventaire.instance.refillLegume(legumeGiven);
     }
 
     private void OnDisable()

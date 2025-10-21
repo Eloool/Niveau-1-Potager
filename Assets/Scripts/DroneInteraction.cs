@@ -10,9 +10,11 @@ public class DroneInteraction : MonoBehaviour
     public LayerMask maskJardin;
 
     private Coroutine coroutine;
+    public static DroneInteraction instance;
 
     private void Start()
     {
+        instance = this;
         interact.action.performed += LaunchRayInteract;
     }
     public void LaunchRayInteract(InputAction.CallbackContext callbackContext)
@@ -40,7 +42,11 @@ public class DroneInteraction : MonoBehaviour
     {
         if (water.action.WasReleasedThisFrame())
         {
-            StopCoroutine(coroutine);
+            if (coroutine != null)
+            {
+                StopCoroutine(coroutine);
+                coroutine = null;
+            }
         }
         if (water.action.WasPressedThisFrame())
         {
@@ -58,6 +64,11 @@ public class DroneInteraction : MonoBehaviour
     }
     private void OnDisable()
     {
+        if (coroutine !=null)
+        {
+            StopCoroutine (coroutine);
+            coroutine =null;
+        }
         interact.action.performed -= LaunchRayInteract;
     }
 }

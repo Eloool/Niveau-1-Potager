@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9cfa09511ee47b8478efbe69aaeb3336, type: 3}
+  m_Name: AugmentationTailleInventaire
+  m_EditorClassIdentifier: Assembly-CSharp::ShopItemScriptable
+  classBuff: 3
+  price: 100
+  Title: Augmentation de la taille maximale de l'invetaire
+  Description: Cette upgrade augmente la taille de votre inventaire
+  sprite: {fileID: 2800000, guid: c46217df01d283e46a49cb8da5ff053c, type: 3}

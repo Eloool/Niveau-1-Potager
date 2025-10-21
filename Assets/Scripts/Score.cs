@@ -5,12 +5,15 @@ public class Score : MonoBehaviour
 {
     private int score = 0;
     public static Score instance;
-    public TextMeshProUGUI meshPro;
+    public TextMeshProUGUI textScore;
+    public TextMeshProUGUI textMultiplcateur;
+    private int multiplicateur = 1;
 
     private void Start()
     {
         instance = this;
         ChangeScore();
+        ChangeMultiplicateur();
     }
 
     public int getScore()
@@ -20,12 +23,28 @@ public class Score : MonoBehaviour
 
     public void addScore(int score)
     {
-        this.score += score;
+        this.score += score * multiplicateur;
         ChangeScore();
     }
 
     private void ChangeScore()
     {
-        meshPro.text = "Score : "+ score.ToString();
+        textScore.text = "Score : "+ score.ToString();
+    }
+
+    private void ChangeMultiplicateur()
+    {
+        textMultiplcateur.text = "Multiplicateur : *" + this.multiplicateur.ToString();
+    }
+
+    public void SetMultiplicateur(int multiplicateur)
+    {
+        this.multiplicateur = multiplicateur;
+        ChangeMultiplicateur();
+    }
+
+    public int getMultiplicateur()
+    {
+        return multiplicateur;
     }
 }

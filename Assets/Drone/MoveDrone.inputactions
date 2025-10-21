@@ -32,6 +32,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "shop",
+                    "type": "Button",
+                    "id": "be037476-0599-4598-9571-58190f74cc3b",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -137,11 +146,33 @@
                 {
                     "name": "",
                     "id": "b76384fd-bcf2-4114-88f8-b93178210ffe",
-                    "path": "<Keyboard>/e",
+                    "path": "<Gamepad>/buttonNorth",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
                     "action": "Water",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "91d915a4-d493-4816-bd75-e2dab62fedc9",
+                    "path": "<Keyboard>/q",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "shop",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "ece98afd-b14b-4df8-bd06-56780b18b9ab",
+                    "path": "<Gamepad>/buttonWest",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "shop",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
