@@ -2,20 +2,13 @@ using UnityEngine;
 
 public class Inventaire : MonoBehaviour
 {
-    public static Inventaire instance;
     private int numberOfSeeds = 0;
     private int numberMaxOfSeeds = 5;
     private LegumeInfo legumeInInventory;
-    private float jaugeWater =0f;
+    private float jaugeWater = 0f;
     private float jaugeWaterMax = 100f;
 
-    private void Start()
-    {
-        instance = this;
-        ArrosoirCanvas.instance.SetMaxValue(jaugeWaterMax);
-    }
-
-    public LegumeInfo PlantLegume()
+    public virtual LegumeInfo PlantLegume()
     {
         if (numberOfSeeds > 0)
         {
@@ -28,18 +21,16 @@ public class Inventaire : MonoBehaviour
             return null;
         }
     }
-    public void RefillWater()
+    public virtual void RefillWater()
     {
         jaugeWater = jaugeWaterMax;
-        ArrosoirCanvas.instance.UpdateCanvas();
     }
 
-    public bool Water()
+    public virtual bool Water()
     {
         if (jaugeWater > 0)
         {
             jaugeWater -= 0.5f;
-            ArrosoirCanvas.instance.UpdateCanvas();
             return true;
         }
         else
@@ -47,13 +38,17 @@ public class Inventaire : MonoBehaviour
             return false;
         }
     }
-    
+
     public float getJaugeWater()
     {
         return jaugeWater;
     }
-    
-    public void refillLegume(LegumeInfo legume)
+    public float getJaugeMaxWater()
+    {
+        return jaugeWaterMax;
+    }
+
+    public virtual void refillLegume(LegumeInfo legume)
     {
         legumeInInventory = legume;
         numberOfSeeds = numberMaxOfSeeds;
@@ -68,9 +63,36 @@ public class Inventaire : MonoBehaviour
     {
         this.numberMaxOfSeeds = numberMaxofSeeds;
     }
-    public void setMaxArrosoir(float maxArrosoir)
+    public virtual void setMaxArrosoir(float maxArrosoir)
     {
         this.jaugeWaterMax = maxArrosoir;
-        ArrosoirCanvas.instance.SetMaxValue(jaugeWaterMax);
+    }
+
+    public LegumeInfo GetLegume()
+    {
+        return legumeInInventory;
+    }
+
+    public int getNumberOfSeeds()
+    {
+        return numberOfSeeds;
+    }
+    public void SetLegume(LegumeInfo legume)
+    {
+        legumeInInventory = legume;
+    }
+    public void SetJaugeWater(float water)
+    {
+        jaugeWater = water;
+    }
+
+    public void SetNumberOfSeed(int numberOfSeeds)
+    {
+        this.numberOfSeeds = numberOfSeeds;
+    }
+
+    public int GetNumberMaxOfSeeds()
+    {
+        return numberMaxOfSeeds;
     }
 }

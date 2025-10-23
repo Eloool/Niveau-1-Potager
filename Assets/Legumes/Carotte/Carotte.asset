@@ -21,5 +21,5 @@ MonoBehaviour:
   - stadeLegume: {fileID: 8204887017581438627, guid: 256da108ea4933f498908e467e4c1fc9, type: 3}
     time: 20
   TimeBeforeExplosion: 20
-  ScoreGiven: 30
-  MoneyGiven: 10
+  ScoreGiven: 40
+  MoneyGiven: 20

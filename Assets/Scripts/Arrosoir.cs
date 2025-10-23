@@ -2,8 +2,8 @@ using UnityEngine;
 
 public class Arrosoir : Interaction
 {
-    public override void Interact()
+    public override void Interact(Inventaire invetaire)
     {
-        Inventaire.instance.RefillWater();
+        invetaire.RefillWater();
     }
 }

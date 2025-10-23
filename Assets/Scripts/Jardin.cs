@@ -1,10 +1,20 @@
 using System.Collections.Generic;
-using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
 public class Jardin : MonoBehaviour
 {
     private List<List<PlotJardin>> jardinList =new List<List<PlotJardin>>();
+    public List<PanneauLegume> panneauLegumes;
+    public Arrosoir arrosoir;
+    public static Jardin instance;
+    private static LegumeInfo info;
+
+    private float multiplcateurEngrais = 1f;
+
+    private void Awake()
+    {
+        instance = this;
+    }
 
     private void Start()
     {
@@ -32,5 +42,35 @@ public class Jardin : MonoBehaviour
             if (cpt == 21)
                 cpt=0 ;
         }
+    }
+
+    public void setMultiplicateur(float multiplcateur)
+    {
+        multiplcateurEngrais = multiplcateur;
+    }
+
+    public float getMultiplicateur()
+    {
+        return multiplcateurEngrais;
+    }
+    public PanneauLegume GetPanneau(LegumeInfo legumeInfo)
+    {
+        info = legumeInfo;
+        return panneauLegumes.Find(IsSameInfo);
+    }
+
+    public Arrosoir getArrosoir()
+    {
+        return arrosoir;
+    }
+
+    private static bool IsSameInfo(PanneauLegume legumeInfo)
+    {
+        return legumeInfo.legumeGiven.Equals(info);
+    }
+
+    public List<List<PlotJardin>> getAllPlots()
+    {
+        return jardinList;
     }
 }

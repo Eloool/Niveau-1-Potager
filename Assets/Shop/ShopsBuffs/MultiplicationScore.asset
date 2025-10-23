@@ -13,8 +13,7 @@ MonoBehaviour:
   m_Name: MultiplicationScore
   m_EditorClassIdentifier: Assembly-CSharp::ShopItemScriptable
   classBuff: 0
-  price: 20
-  Title: Multiplicateur score
-  Description: Score Multiplicateur
+  Title: Multiplicateur score/Argent
+  Description: Augmente le multiplicateur pour le score et l'argent
   sprite: {fileID: 2800000, guid: 6179284f09037b5428813528ac61bf3d, type: 3}
   info: {fileID: 11400000, guid: 4349fd0715fa95b49a2b28001c0fe0e8, type: 2}

@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: InfoBuffMultilplicateur
   m_EditorClassIdentifier: Assembly-CSharp::InfoShopBuff
   infos: 02000000040000000800000010000000
-  price: e8030000a00f0000401f0000204e0000
+  price: f4010000b80b000070170000e02e0000

@@ -3,7 +3,8 @@ using UnityEngine;
 
 public class PorteMonnaie : MonoBehaviour
 {
-    private int money = 1000;
+    private int money = 0;
+    private int multiplicateur = 1;
     public static PorteMonnaie instance;
     public TextMeshProUGUI meshPro;
 
@@ -20,7 +21,7 @@ public class PorteMonnaie : MonoBehaviour
 
     public void addMoney(int money)
     {
-        this.money += money;
+        this.money += money * multiplicateur;
         ChangeMoney();
     }
 
@@ -38,5 +39,9 @@ public class PorteMonnaie : MonoBehaviour
             return true;
         }
         return false;
+    }
+    public void SetMultiplicateur(int multiplicateur)
+    {
+        this.multiplicateur = multiplicateur;
     }
 }
