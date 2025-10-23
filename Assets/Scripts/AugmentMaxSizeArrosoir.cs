@@ -4,6 +4,6 @@ public class AugmentMaxSizeArrosoir : ShopBuff
 {
     public override void Activate(int info)
     {
-        Inventaire.instance.setMaxArrosoir(info);
+        InventairePerso.instance.setMaxArrosoir(info);
     }
 }

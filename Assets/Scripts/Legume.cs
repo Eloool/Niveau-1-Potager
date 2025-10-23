@@ -11,33 +11,35 @@ public class Legume
     private int timeStadeLegume =0;
     private float currentTimeBeforeExplosion = 0f;
 
+
     public void LoadInfo(LegumeInfo info)
     {
         this.info = info;
         stadeLegume = StadeLegume.avantmur;
     }
 
-    public IEnumerator UpdateLegume()
+    public IEnumerator UpdateLegume(Inventaire inventaire)
     {
         if (plotJardin.isPlotWatered())
         {
             while (timeStadeLegume != info.stadeLegumeTimes.Count)
             {
-                Debug.Log(timeStadeLegume);
-                yield return new WaitForSeconds(info.stadeLegumeTimes[timeStadeLegume].time);
+                yield return new WaitForSeconds(info.stadeLegumeTimes[timeStadeLegume].time * Jardin.instance.getMultiplicateur());
                 
                 plotJardin.UpdateLegume();
                 timeStadeLegume++;
 
             }
             stadeLegume = StadeLegume.mur;
+            OrganisationDrone.instance.AddPlotJardinRecolte(plotJardin);
             while (currentTimeBeforeExplosion < info.TimeBeforeExplosion)
             {
                 yield return new WaitForSeconds(1f);
                 legumeObject.transform.localScale += Vector3.one * 0.01f;
                 currentTimeBeforeExplosion += 1f;
             }
-            plotJardin.RemoveLegumeFromPlot();
+            plotJardin.RemoveLegumeFromPlot(inventaire);
+
             yield return null;
         }
     }
@@ -52,11 +54,16 @@ public class Legume
         return info.stadeLegumeTimes[timeStadeLegume].stadeLegume;
     }
 
-    public void LegumeGotten()
+    public void LegumeGotten(Inventaire inventaire)
     {
         Score.instance.addScore(info.ScoreGiven);
         PorteMonnaie.instance.addMoney(info.MoneyGiven);
-        plotJardin.RemoveLegumeFromPlot();
+        plotJardin.RemoveLegumeFromPlot(inventaire);
+    }
+
+    public LegumeInfo GetLegumeInfo()
+    {
+        return info;
     }
 
 }

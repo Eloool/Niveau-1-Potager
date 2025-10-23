@@ -13,7 +13,7 @@ public class ArrosoirCanvas : MonoBehaviour
     }
     public void UpdateCanvas()
     {
-        slider.value = Inventaire.instance.getJaugeWater();
+        slider.value = InventairePerso.instance.getJaugeWater();
     }
     public void SetMaxValue(float value)
     {

@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 042e088d08ae8044e903c149a34f2565, type: 3}
   m_Name: InfoBuffVitessePousse
   m_EditorClassIdentifier: Assembly-CSharp::InfoShopBuff
-  infos: 01000000
-  price: 88130000
+  infos: 500000004100000032000000
+  price: b80b00007017000010270000

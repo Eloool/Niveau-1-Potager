@@ -22,4 +22,4 @@ MonoBehaviour:
     time: 30
   TimeBeforeExplosion: 20
   ScoreGiven: 30
-  MoneyGiven: 10
+  MoneyGiven: 20

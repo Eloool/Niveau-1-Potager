@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 042e088d08ae8044e903c149a34f2565, type: 3}
   m_Name: InfoBuffDrone
   m_EditorClassIdentifier: Assembly-CSharp::InfoShopBuff
-  infos: 01000000
-  price: 10270000
+  infos: 010000000200000003000000
+  price: 10270000204e000030750000
