@@ -24890,7 +24890,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 70693396437987900, guid: cf23b55ba765f374aab36c1a7a3b28f4, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 842445707801962630, guid: cf23b55ba765f374aab36c1a7a3b28f4, type: 3}
       propertyPath: m_LocalScale.x
@@ -52316,7 +52316,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3b8741f45d75f5e4db7b441a2b96efc2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PorteMonnaie
-  money: 1000000
+  money: 0
   meshPro: {fileID: 1166157253}
 --- !u!114 &2132706564
 MonoBehaviour:
