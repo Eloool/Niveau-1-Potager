@@ -1,4 +1,5 @@
 using System.Collections;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using static UnityEngine.InputSystem.InputAction;
@@ -8,51 +9,67 @@ public class DroneInteraction : InteractionBase
     public InputActionReference interact;
     public InputActionReference water;
 
-    private Coroutine coroutine;
+    private Coroutine coroutineWater;
+    private Coroutine coroutinePlant;
     public static DroneInteraction instance;
 
     private void Start()
     {
         instance = this;
+
     }
-    public void LaunchRayInteractDrone(InputAction.CallbackContext callbackContext)
+    private void OnEnable()
     {
-        RaycastHit hit;
-        if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.down * 10), out hit, Mathf.Infinity, maskTarget))
+        interact.action.canceled += FinishPlanting;
+        interact.action.performed += CommencePlanting;
+        water.action.canceled += FinishWatering;
+        water.action.performed += CommenceWatering;
+    }
+
+    private void CommencePlanting(InputAction.CallbackContext callbackContext)
+    {
+        coroutinePlant = StartCoroutine(PlantPlot());
+    }
+    private void CommenceWatering(InputAction.CallbackContext callbackContext)
+    {
+        coroutineWater = StartCoroutine(WAterPlot());
+    }
+
+    private void FinishPlanting(InputAction.CallbackContext callbackContext)
+    {
+        if (coroutinePlant != null)
         {
-            hit.transform.gameObject.GetComponent<Interaction>().Interact(InventairePerso.instance);
+            StopCoroutine(coroutinePlant);
+            coroutinePlant = null;
         }
     }
 
-    private void OnEnable()
+    private void FinishWatering(InputAction.CallbackContext callbackContext)
     {
-        interact.action.performed += LaunchRayInteractDrone;
-    }
-    
-    private void Update()
-    {
-        if (water.action.WasReleasedThisFrame())
+        if (coroutineWater != null)
         {
-            if (coroutine != null)
-            {
-                StopCoroutine(coroutine);
-                coroutine = null;
-            }
-        }
-        if (water.action.WasPressedThisFrame())
-        {
-            coroutine = StartCoroutine(WAterPlot());
+            StopCoroutine(coroutineWater);
+            coroutineWater = null;
         }
     }
+
 
     private void OnDisable()
     {
-        if (coroutine !=null)
+        if (coroutineWater != null)
         {
-            StopCoroutine (coroutine);
-            coroutine =null;
+            StopCoroutine(coroutineWater);
+            coroutineWater = null;
         }
-        interact.action.performed -= LaunchRayInteractDrone;
+        if (coroutinePlant != null)
+        {
+            StopCoroutine(coroutinePlant);
+            coroutinePlant = null;
+        }
+        interact.action.canceled -= FinishPlanting;
+        interact.action.performed -= CommencePlanting;
+        water.action.canceled -= FinishWatering;
+        water.action.performed -= CommenceWatering;
     }
     public IEnumerator WAterPlot()
     {
@@ -60,6 +77,14 @@ public class DroneInteraction : InteractionBase
         {
             yield return new WaitForEndOfFrame();
             LaunchRayWater(InventairePerso.instance);
+        }
+    }
+    public IEnumerator PlantPlot()
+    {
+        while (true)
+        {
+            yield return new WaitForEndOfFrame();
+            LaunchRayInteract(InventairePerso.instance);
         }
     }
 }

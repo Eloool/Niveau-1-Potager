@@ -33,14 +33,7 @@ public class ShopItem : MonoBehaviour
     public void UpdateShopItem()
     {
         priceText.text = "Prix : " + price.ToString();
-        if (price <= PorteMonnaie.instance.getMoney())
-        {
-            button.interactable = true;
-        }
-        else
-        {
-            button.interactable=false;
-        }
+        UpdateButton();
     }
     public int getPrice()
     {
@@ -50,5 +43,17 @@ public class ShopItem : MonoBehaviour
     {
         this.price = price;
         UpdateShopItem();
+    }
+
+    public void UpdateButton()
+    {
+        if (price <= PorteMonnaie.instance.getMoney())
+        {
+            button.interactable = true;
+        }
+        else
+        {
+            button.interactable = false;
+        }
     }
 }

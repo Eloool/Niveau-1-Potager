@@ -19650,6 +19650,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3b8741f45d75f5e4db7b441a2b96efc2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PorteMonnaie
+  money: 0
   meshPro: {fileID: 1166157253}
 --- !u!114 &2132706564
 MonoBehaviour:

@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class PorteMonnaie : MonoBehaviour
 {
-    private int money = 0;
+    [SerializeField] private int money = 0;
     private int multiplicateur = 1;
     public static PorteMonnaie instance;
     public TextMeshProUGUI meshPro;

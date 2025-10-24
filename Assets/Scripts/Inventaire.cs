@@ -26,17 +26,14 @@ public class Inventaire : MonoBehaviour
         jaugeWater = jaugeWaterMax;
     }
 
-    public virtual bool Water()
+    public virtual void Water()
     {
-        if (jaugeWater > 0)
-        {
-            jaugeWater -= 0.5f;
-            return true;
-        }
-        else
-        {
-            return false;
-        }
+        jaugeWater -= 0.5f;
+    }
+
+    public bool canWater()
+    {
+        return jaugeWater > 0;
     }
 
     public float getJaugeWater()

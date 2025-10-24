@@ -124,6 +124,7 @@ public class PlotJardin : Interaction
         if (!IsPlotWatered)
         {
             IsPlotWatered = true;
+            inventaire.Water();
             bool isPerso = true;
             if (inventaire is InventaireIA)
             {

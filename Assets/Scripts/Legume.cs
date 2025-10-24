@@ -35,7 +35,7 @@ public class Legume
             while (currentTimeBeforeExplosion < info.TimeBeforeExplosion)
             {
                 yield return new WaitForSeconds(1f);
-                legumeObject.transform.localScale += Vector3.one * 0.01f;
+                legumeObject.transform.localScale += Vector3.one * 0.02f;
                 currentTimeBeforeExplosion += 1f;
             }
             plotJardin.RemoveLegumeFromPlot(inventaire);

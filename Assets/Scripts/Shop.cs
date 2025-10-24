@@ -77,6 +77,10 @@ public class Shop : MonoBehaviour
             {
                 shop.SetActive(true);
                 scrollbar.value = 1;
+                foreach(ShopItem shopItem in ShopItems)
+                {
+                    shopItem.UpdateButton();
+                }
             }
         }
     }

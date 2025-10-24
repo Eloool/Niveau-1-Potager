@@ -16,7 +16,7 @@ public class InteractionBase : MonoBehaviour
 
     public void LaunchRayWater(Inventaire inventaire)
     {
-        if (inventaire.Water())
+        if (inventaire.canWater())
         {
             RaycastHit hit;
             if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.down * 10), out hit, Mathf.Infinity, maskTarget))

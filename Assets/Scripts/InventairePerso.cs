@@ -34,18 +34,10 @@ public class InventairePerso : Inventaire
         ArrosoirCanvas.instance.UpdateCanvas();
     }
 
-    public override bool Water()
+    public override void Water()
     {
-        if (getJaugeWater() > 0)
-        {
-            SetJaugeWater(getJaugeWater() -0.5f);
-            ArrosoirCanvas.instance.UpdateCanvas();
-            return true;
-        }
-        else
-        {
-            return false;
-        }
+        SetJaugeWater(getJaugeWater() - 0.5f);
+        ArrosoirCanvas.instance.UpdateCanvas();
     }
     
     public override void refillLegume(LegumeInfo legume)
