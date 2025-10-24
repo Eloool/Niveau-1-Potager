@@ -35,5 +35,14 @@ public class MenusManager : MonoBehaviour
             DroneInteraction.instance.enabled = true;
         }
     }
+    public void CloseCanvasByForce()
+    {
+        if (menusInFront)
+        {
+            menusInFront = null;
+            DroneMovement.instance.enabled = true;
+            DroneInteraction.instance.enabled = true;
+        }
+    }
 
 }

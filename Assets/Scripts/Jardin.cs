@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -8,6 +9,7 @@ public class Jardin : MonoBehaviour
     public Arrosoir arrosoir;
     public static Jardin instance;
     private static LegumeInfo info;
+    
 
     private float multiplcateurEngrais = 1f;
 
@@ -73,4 +75,6 @@ public class Jardin : MonoBehaviour
     {
         return jardinList;
     }
+
+    
 }

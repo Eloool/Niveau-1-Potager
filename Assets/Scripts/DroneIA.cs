@@ -12,7 +12,7 @@ public class DroneIA : MonoBehaviour
     private Coroutine coroutine;
     public List<Vector3> route = new List<Vector3>();
 
-    private void Start()
+    private void Awake()
     {
         OrganisationDrone.instance.AddDrone(this);
         inventaire = GetComponent<InventaireIA>();

@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class PlotJardin : Interaction
@@ -8,6 +9,15 @@ public class PlotJardin : Interaction
     private LegumeInfo legumeBluprint;
     private GameObject GameObjectBlueprintPlant;
     private bool isBlueprint;
+
+    private bool canPlant = true;
+    private IEnumerator canplant()
+    {
+        canPlant = false;
+        yield return new WaitForSeconds(1.5f);
+        canPlant = true;
+
+    }
 
     public bool isPlotWatered()
     {
@@ -51,7 +61,7 @@ public class PlotJardin : Interaction
         {
             OrganisationDrone.instance.StopIAPlantationGoingToPlot(this,DroneStatus.Plantation,true);
         }
-        if (legumeinplot == null && inventaire.canPlant())
+        if (legumeinplot == null && inventaire.canPlant() & canPlant)
         {
             legumeinplot = new Legume();
             legumeinplot.LoadInfo(inventaire.PlantLegume());
@@ -71,6 +81,7 @@ public class PlotJardin : Interaction
             StopCoroutine(coroutineLegume);
             coroutineLegume = null;
             legumeinplot.LegumeGotten(inventaire);
+            StartCoroutine(canplant());
         }
     }
 
@@ -160,8 +171,10 @@ public class PlotJardin : Interaction
     }
     public bool PlantBlueprint(LegumeInfo legumeInfo)
     {
+
         if (legumeBluprint && GameObjectBlueprintPlant)
         {
+            OrganisationDrone.instance.StopIAPlantationGoingToPlot(this,DroneStatus.Plantation,true);
             legumeBluprint = null;
             Destroy(GameObjectBlueprintPlant);
         }

@@ -8,6 +8,7 @@ public class Score : MonoBehaviour
     public TextMeshProUGUI textScore;
     public TextMeshProUGUI textMultiplcateur;
     private int multiplicateur = 1;
+    [SerializeField ] private int maxScore = 100;
 
     private void Start()
     {
@@ -25,6 +26,10 @@ public class Score : MonoBehaviour
     {
         this.score += score * multiplicateur;
         ChangeScore();
+        if(this.score >= maxScore && !MenuStart.instance.IsInfinite())
+        {
+            MenuGame.Instance.AfficherFin();
+        }
     }
 
     private void ChangeScore()
