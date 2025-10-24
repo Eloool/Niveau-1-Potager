@@ -6,7 +6,7 @@ public class Inventaire : MonoBehaviour
     private int numberMaxOfSeeds = 5;
     private LegumeInfo legumeInInventory;
     private float jaugeWater = 0f;
-    private float jaugeWaterMax = 100f;
+    private float jaugeWaterMax = 25f;
 
     public virtual LegumeInfo PlantLegume()
     {

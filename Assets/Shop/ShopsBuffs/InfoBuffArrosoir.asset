@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 042e088d08ae8044e903c149a34f2565, type: 3}
   m_Name: InfoBuffArrosoir
   m_EditorClassIdentifier: Assembly-CSharp::InfoShopBuff
-  infos: c8000000f4010000e8030000
-  price: d0070000a00f0000401f0000
+  infos: 4b0000007d000000c8000000
+  price: b80b00008813000028230000
