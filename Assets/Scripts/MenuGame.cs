@@ -76,4 +76,12 @@ public class MenuGame : MonoBehaviour
         Time.timeScale = 0f;
         
     }
+
+    public void ContinuerInfini()
+    {
+        gameover.SetActive(false);
+        MenusManager.instance.RemoveCanvas(gameover) ;
+        MenuStart.instance.Infinite(true);
+        Time.timeScale = 1f;
+    }
 }

@@ -4,7 +4,6 @@ public class InventairePerso : Inventaire
 {
     public static InventairePerso instance;
 
-
     private void Start()
     {
         instance = this;
@@ -18,15 +17,22 @@ public class InventairePerso : Inventaire
         if (getNumberOfSeeds() > 0)
         {
             SetNumberOfSeed(getNumberOfSeeds()-1);
-            InventaireCanvas.instance.UpdateCanvasInventaire();
             return GetLegume();
         }
         else
         {
             SetLegume(null);
-            InventaireCanvas.instance.UpdateCanvasInventaire();
             return null;
         }
+    }
+
+    public void UpdateCanvas()
+    {
+        if (getNumberOfSeeds() <= 0)
+        {
+            SetLegume(null);
+        }
+        InventaireCanvas.instance.UpdateCanvasInventaire();
     }
     public override void RefillWater()
     {
@@ -51,5 +57,11 @@ public class InventairePerso : Inventaire
     {
         base.setMaxArrosoir(maxArrosoir);
         ArrosoirCanvas.instance.SetMaxValue(getJaugeMaxWater());
+    }
+
+    public override void EmptyInventory()
+    {
+        base.EmptyInventory();
+        InventaireCanvas.instance.UpdateCanvasInventaire();
     }
 }

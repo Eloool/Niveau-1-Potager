@@ -41,5 +41,10 @@ public class InteractionCircle : MonoBehaviour
                 }
             }
         }
+        else if (circleSelection.activeInHierarchy)
+        {
+            circleSelection.SetActive(false);
+            lastPlotJardin = null;
+        }
     }
 }

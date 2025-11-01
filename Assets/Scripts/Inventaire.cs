@@ -92,4 +92,10 @@ public class Inventaire : MonoBehaviour
     {
         return numberMaxOfSeeds;
     }
+
+    public virtual void EmptyInventory()
+    {
+        legumeInInventory = null;
+        numberOfSeeds = 0;
+    }
 }

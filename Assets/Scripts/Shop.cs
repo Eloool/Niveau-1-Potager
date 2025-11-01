@@ -70,6 +70,8 @@ public class Shop : MonoBehaviour
         {
             shop.SetActive(false);
             MenusManager.instance.RemoveCanvas(shop);
+            Score.instance.gameObject.SetActive(true);
+            InventaireCanvas.instance.transform.parent.gameObject.SetActive(true);
         }
         else
         {
@@ -77,7 +79,9 @@ public class Shop : MonoBehaviour
             {
                 shop.SetActive(true);
                 scrollbar.value = 1;
-                foreach(ShopItem shopItem in ShopItems)
+                Score.instance.gameObject.SetActive(false);
+                InventaireCanvas.instance.transform.parent.gameObject.SetActive(false);
+                foreach (ShopItem shopItem in ShopItems)
                 {
                     shopItem.UpdateButton();
                 }

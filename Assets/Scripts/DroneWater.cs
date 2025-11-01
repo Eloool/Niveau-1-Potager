@@ -30,7 +30,6 @@ public class DroneWater : DroneIA
 
     public override bool NextTarget(PlotJardin plotJardin)
     {
-        //Debug.Log(plotJardin, plotJardin);
         bool isResting = base.NextTarget(plotJardin);
         if (plotJardin != null)
         {
