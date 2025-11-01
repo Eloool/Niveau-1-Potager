@@ -6,7 +6,8 @@ public class PorteMonnaie : MonoBehaviour
     [SerializeField] private int money = 0;
     private int multiplicateur = 1;
     public static PorteMonnaie instance;
-    public TextMeshProUGUI meshPro;
+    public TextMeshProUGUI meshProGame;
+    public TextMeshProUGUI meshProShop;
 
     private void Awake()
     {
@@ -27,7 +28,8 @@ public class PorteMonnaie : MonoBehaviour
 
     private void ChangeMoney()
     {
-        meshPro.text = "Argent : " + money.ToString();
+        meshProGame.text = "Argent : " + money.ToString();
+        meshProShop.text = "Argent : " + money.ToString();
     }
 
     public bool RemoveMoney( int moneyNeeded)

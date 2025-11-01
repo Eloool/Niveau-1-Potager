@@ -27,6 +27,7 @@ public class DroneIA : MonoBehaviour
         {
             return false;
         }
+        route.Clear();
         plotJardinNext = plotJardin;
         return true;
 

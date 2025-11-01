@@ -6,6 +6,7 @@ public class BlueprintPlantation : MonoBehaviour
 {
     public static BlueprintPlantation Instance;
     private bool isInBlueprint =false;
+    public GameObject blueprintText;
 
     public InputActionReference inputBlueprint;
     public Material materialBlueprint;
@@ -30,6 +31,7 @@ public class BlueprintPlantation : MonoBehaviour
                 plotJardin.ChangeVuePlant(isInBlueprint);
             }
         }
+        blueprintText.SetActive(isInBlueprint);
 
     }
 

@@ -48,6 +48,14 @@ public class PlotJardin : Interaction
                     if (legumeinplot == null)
                         OrganisationDrone.instance.AddPlotJardinPlantation(this);
                 }
+                else
+                {
+                    if (legumeBluprint)
+                    {
+                        legumeBluprint = null;
+                        OrganisationDrone.instance.StopIAPlantationGoingToPlot(this, DroneStatus.Plantation, true);
+                    }
+                }
             }
             else
             {
@@ -65,6 +73,10 @@ public class PlotJardin : Interaction
         {
             legumeinplot = new Legume();
             legumeinplot.LoadInfo(inventaire.PlantLegume());
+            if(inventaire is InventairePerso)
+            {
+                ((InventairePerso)inventaire).UpdateCanvas();
+            }
             legumeinplot.setPlotJardin(this);
             UpdateLegume();
             if (IsPlotWatered)

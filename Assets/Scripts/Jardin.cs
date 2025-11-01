@@ -41,7 +41,7 @@ public class Jardin : MonoBehaviour
                 row++;
             }
             cpt++;
-            if (cpt == 21)
+            if (cpt == 20)
                 cpt=0 ;
         }
     }
@@ -76,5 +76,10 @@ public class Jardin : MonoBehaviour
         return jardinList;
     }
 
-    
+
+    private void OnDestroy()
+    {
+        
+    }
+
 }
