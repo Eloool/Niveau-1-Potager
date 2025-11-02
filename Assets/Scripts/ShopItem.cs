@@ -11,13 +11,14 @@ public class ShopItem : MonoBehaviour
     public RawImage image;
     public TextMeshProUGUI priceText;
     public Button button;
-    private int indexPrice =0;
+    private int indexPrice = 0;
+    public GameObject textBuy;
     public void BuyItem()
     {
         PorteMonnaie.instance.RemoveMoney(price);
-        shopBuff.Activate(Shop.instance.getInfoForBuff(this,indexPrice));
+        shopBuff.Activate(Shop.instance.getInfoForBuff(this, indexPrice));
         indexPrice++;
-        Shop.instance.UpdateShopItem(this,indexPrice);
+        Shop.instance.UpdateShopItem(this, indexPrice);
     }
 
     public void LoadInfo(ShopItemScriptable itemScriptable)
@@ -27,7 +28,7 @@ public class ShopItem : MonoBehaviour
         image.texture = itemScriptable.sprite;
         shopBuff = GetComponent<ShopBuff>();
         UpdateShopItem();
-        Shop.instance.UpdateShopItem(this,  indexPrice);
+        Shop.instance.UpdateShopItem(this, indexPrice);
     }
 
     public void UpdateShopItem()
@@ -50,10 +51,14 @@ public class ShopItem : MonoBehaviour
         if (price <= PorteMonnaie.instance.getMoney())
         {
             button.interactable = true;
+            button.GetComponent<RawImage>().texture = Resources.Load<Texture>("button_grey");
+            textBuy.SetActive(true);
         }
         else
         {
             button.interactable = false;
+            button.GetComponent<RawImage>().texture = Resources.Load<Texture>("button_grey_close");
+            textBuy.SetActive(false);
         }
     }
 }

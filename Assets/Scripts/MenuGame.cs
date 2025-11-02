@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -52,6 +53,8 @@ public class MenuGame : MonoBehaviour
             Menu.SetActive(false);
             MenusManager.instance.RemoveCanvas(Menu);
             Time.timeScale = 1f;
+            EventSystem.current.firstSelectedGameObject = null;
+            EventSystem.current.SetSelectedGameObject(null);
         }
         else
         {
@@ -59,6 +62,8 @@ public class MenuGame : MonoBehaviour
             {
                 Menu.SetActive(true);
                 Time.timeScale = 0f;
+                EventSystem.current.firstSelectedGameObject = Menu.GetComponentInChildren<Button>().gameObject;
+                EventSystem.current.SetSelectedGameObject(Menu.GetComponentInChildren<Button>().gameObject);
             }
         }
     }
@@ -74,7 +79,9 @@ public class MenuGame : MonoBehaviour
         gameover.SetActive(true);
         MenusManager.instance.OpenCanvas(gameover);
         Time.timeScale = 0f;
-        
+        EventSystem.current.firstSelectedGameObject = gameover.GetComponentInChildren<Button>().gameObject;
+        EventSystem.current.SetSelectedGameObject(gameover.GetComponentInChildren<Button>().gameObject);
+
     }
 
     public void ContinuerInfini()
@@ -83,5 +90,7 @@ public class MenuGame : MonoBehaviour
         MenusManager.instance.RemoveCanvas(gameover) ;
         MenuStart.instance.Infinite(true);
         Time.timeScale = 1f;
+        EventSystem.current.firstSelectedGameObject = null;
+        EventSystem.current.SetSelectedGameObject(null);
     }
 }

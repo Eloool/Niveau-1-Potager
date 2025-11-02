@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
 
@@ -72,6 +73,8 @@ public class Shop : MonoBehaviour
             MenusManager.instance.RemoveCanvas(shop);
             Score.instance.gameObject.SetActive(true);
             InventaireCanvas.instance.transform.parent.gameObject.SetActive(true);
+            EventSystem.current.firstSelectedGameObject = null;
+            EventSystem.current.SetSelectedGameObject(null);
         }
         else
         {
@@ -81,6 +84,8 @@ public class Shop : MonoBehaviour
                 scrollbar.value = 1;
                 Score.instance.gameObject.SetActive(false);
                 InventaireCanvas.instance.transform.parent.gameObject.SetActive(false);
+                EventSystem.current.firstSelectedGameObject = ShopItems[0].button.gameObject;
+                EventSystem.current.SetSelectedGameObject(ShopItems[0].button.gameObject);
                 foreach (ShopItem shopItem in ShopItems)
                 {
                     shopItem.UpdateButton();
@@ -109,6 +114,8 @@ public class Shop : MonoBehaviour
             shopItemScriptables.Remove(shopItemScriptables[indexList]);
             ShopItems.Remove(shopItem);
             Destroy(shopItem.gameObject);
+            EventSystem.current.firstSelectedGameObject = ShopItems[0].button.gameObject;
+            EventSystem.current.SetSelectedGameObject(ShopItems[0].button.gameObject);
         }
     }
 
