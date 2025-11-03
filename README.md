@@ -6,17 +6,17 @@ Controles (Clavier Souris):
 ZQSD : Movement
 Clic gauche : Interagir
 Clic Droit : Arroser
-A : Magasin
-E : Mode Blueprint (après avoir acheter le premier drone)
-Echap : Menu Pause
+"A" : Magasin
+"E" : Mode Blueprint (après avoir acheter le premier drone)
+"Echap" : Menu Pause
 
 Controles (Manette):
 Stick Gauche: Mouvement
-A : Interagir
-Y : Arroser
-X : Magasin
-B : Mode Blueprint (après avoir acheter le premier drone)
-+ : Menu Pause
+"A" : Interagir
+"Y" : Arroser
+"X" : Magasin
+"B" : Mode Blueprint (après avoir acheter le premier drone)
+"+" : Menu Pause
 
 Ceci est un jeu réalisé pour ma 3ème année de BUT Informatique.
 
