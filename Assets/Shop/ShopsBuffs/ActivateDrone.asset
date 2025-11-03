@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: ActivateDrone
   m_EditorClassIdentifier: Assembly-CSharp::ShopItemScriptable
   classBuff: 1
-  Title: Activate Drone
-  Description: "Trois paliers qui active chaqun un drone : un qui plante,arrose et
-    r\xE9colte)"
+  Title: Activer les drones
+  Description: 'Trois paliers qui active chaq''un un drone : un drone pour planter,
+    un pour arroser et un pour recolter'
   sprite: {fileID: 2800000, guid: d1029379ac24df34ba2b1e3fded9590d, type: 3}
   info: {fileID: 11400000, guid: 2f7ab643875c87048a795ff7e2298417, type: 2}

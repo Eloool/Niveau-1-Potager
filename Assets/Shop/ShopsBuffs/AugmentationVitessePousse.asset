@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ShopItemScriptable
   classBuff: 4
   Title: Augemente la vitesse de pousser des graines
-  Description: "Utilise de l'engrais pour aider \xE0 la pouss\xE9e des graines"
+  Description: Permet aider a la poussee des graines grace a l'application d'engrais
   sprite: {fileID: 2800000, guid: a401401a3a639b2428ba663d0138a5bc, type: 3}
   info: {fileID: 11400000, guid: 631467ba9c8fb254fa0f27c0ceb020b1, type: 2}
