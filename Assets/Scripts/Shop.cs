@@ -69,12 +69,7 @@ public class Shop : MonoBehaviour
     {
         if (shop.activeInHierarchy)
         {
-            shop.SetActive(false);
-            MenusManager.instance.RemoveCanvas(shop);
-            Score.instance.gameObject.SetActive(true);
-            InventaireCanvas.instance.transform.parent.gameObject.SetActive(true);
-            EventSystem.current.firstSelectedGameObject = null;
-            EventSystem.current.SetSelectedGameObject(null);
+            CloseShopButton();
         }
         else
         {
@@ -128,7 +123,10 @@ public class Shop : MonoBehaviour
     {
         shop.SetActive(false);
         MenusManager.instance.RemoveCanvas(shop);
-
+        Score.instance.gameObject.SetActive(true);
+        InventaireCanvas.instance.transform.parent.gameObject.SetActive(true);
+        EventSystem.current.firstSelectedGameObject = null;
+        EventSystem.current.SetSelectedGameObject(null);
     }
 
     private void OnDisable()
